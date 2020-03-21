@@ -103,7 +103,7 @@ class XTBClient:
         else:
             raise ValueError('Invalid format {} specified'.format(ret_format))
 
-    def login(self, user_id, password, app_id=None, app_name=None):
+    def lv, app_id=None, app_name=None):
         """Login method to connect the client to XTB API
         :param user_id: user_id or string that identifies the user of the platform
         :param password: password to access
