@@ -103,7 +103,7 @@ class XTBClient:
         else:
             raise ValueError('Invalid format {} specified'.format(ret_format))
 
-    def lv, app_id=None, app_name=None):
+    def login(self, user_id, password, app_id=None, app_name=None):
         """Login method to connect the client to XTB API
         :param user_id: user_id or string that identifies the user of the platform
         :param password: password to access
@@ -142,8 +142,9 @@ class XTBClient:
         as soon as they are available in the system."""
         if not self.stream_session_id:
             raise ValueError('Client not logged in, please log in before try to perform this action')
-        return self._send_action("getBalance", sock='stream', **{"stream_session_id": self.stream_session_id}).get(
-            'data')
+        return self._send_action("getBalance").get('returnData')
+        #return self._send_action("getBalance", sock='stream', **{"stream_session_id": self.stream_session_id}).get(
+        #    'data')
 
     def get_all_symbols(self):
         """Returns array of all symbols available for the user"""
